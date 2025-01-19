@@ -8,5 +8,5 @@ return array(
 "password" => "Password",
 "password_confirmation" => "Confirm Password",
 'with_demo_data' => 'Install With Demo Data',
-"welcome_description" => "Thank you for choosing Infix School for online school management. Please follow the steps to complete Infix School installation!",
+"welcome_description" => "Thank you for choosing SchoolCloud School for online school management. Please follow the steps to complete SchoolCloud School installation!",
 );
