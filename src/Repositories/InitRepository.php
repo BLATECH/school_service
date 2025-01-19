@@ -8,6 +8,7 @@ use Illuminate\Support\Facades\Auth;
 use Modules\RolePermission\Entities\InfixRole;
 use Modules\RolePermission\Entities\AssignPermission;
 use Modules\RolePermission\Entities\Permission;
+use Modules\RolePermission\Entities\SchoolCloudRole;
 
 class InitRepository {
 
@@ -46,9 +47,9 @@ class InitRepository {
             if(!Auth::check()){
                 return [];
             }
-            $infixRole = InfixRole::find(Auth::user()->role_id);
+            $schoolCloud = SchoolCloudRole::find(Auth::user()->role_id);
             $permissionIds = AssignPermission::where('role_id', Auth::user()->role_id)
-            ->when($infixRole->is_saas == 0, function($q) {
+            ->when($schoolCloud->is_saas == 0, function($q) {
                 $q->where('school_id', Auth::user()->school_id);
             })->pluck('permission_id')->toArray();
 
